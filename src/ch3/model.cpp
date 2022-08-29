@@ -113,8 +113,9 @@ int main()
     //设置居中
     int monitorCount;
     GLFWmonitor** pMonitor = glfwGetMonitors(&monitorCount);
-    const GLFWvidmode* mode = glfwGetVideoMode(*pMonitor);	
-    glfwSetWindowPos(window, (mode->width - SCR_WIDTH) / 2, (mode->height - SCR_HEIGHT) / 2);
+    printf("%d\n", monitorCount);
+    const GLFWvidmode* mode1 = glfwGetVideoMode(*pMonitor);	
+    glfwSetWindowPos(window, (mode1->width - SCR_WIDTH) / 2, (mode1->height - SCR_HEIGHT) / 2);
 
     // tell GLFW to capture our mouse
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
