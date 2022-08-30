@@ -280,8 +280,6 @@ float cubeVertices[] = {
         shader.setMat4("projection", projection);
     
         // cubes
-        glEnable(GL_CULL_FACE);
-        glCullFace(GL_FRONT);  //剔除正向面
 
         glBindVertexArray(cubeVAO);
         glActiveTexture(GL_TEXTURE0);
@@ -294,11 +292,24 @@ float cubeVertices[] = {
         shader.setMat4("model", model);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         // floor
-        glDisable(GL_CULL_FACE);
         glBindVertexArray(planeVAO);
         glBindTexture(GL_TEXTURE_2D, floorTexture);
         shader.setMat4("model", glm::mat4(1.0f));
         glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+
+
+        //最后绘制天空盒
+        glDepthFunc(GL_LEQUAL);
+        skyboxShader.use();
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTexture);
+        glBindVertexArray(skyboxVAO);
+        glm::mat4 staticView = glm::mat4(glm::mat3(camera.GetViewMatrix()));
+        glm::mat4 skyPerspective = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        skyboxShader.setMat4("projection", skyPerspective);
+        skyboxShader.setMat4("view", staticView);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDepthFunc(GL_LESS);
         glBindVertexArray(0);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
