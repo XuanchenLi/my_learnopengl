@@ -82,7 +82,24 @@ int main()
     // build and compile shaders
     // -------------------------
     Shader shader("../Shader/depth_test.vs", "../Shader/depth_test.fs");
-    Shader screenShader("../Shader/render_texture.vs", "../Shader/render_texture.fs");
+    //Shader screenShader("../Shader/render_texture.vs", "../Shader/render_texture.fs");
+    
+    //反相
+    //Shader screenShader("../Shader/render_texture.vs", "../Shader/inversion.fs");
+
+    //灰度
+    //Shader screenShader("../Shader/render_texture.vs", "../Shader/gray.fs");
+
+    //卷积效果
+    //Shader screenShader("../Shader/render_texture.vs", "../Shader/kernel.fs");
+
+    //模糊
+    //Shader screenShader("../Shader/render_texture.vs", "../Shader/blur.fs");
+
+    //边缘检测
+    Shader screenShader("../Shader/render_texture.vs", "../Shader/edge_detection.fs");
+
+
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float cubeVertices[] = {
