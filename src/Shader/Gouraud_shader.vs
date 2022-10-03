@@ -1,6 +1,6 @@
 #version 330 core
-layout (position = 0) in vec3 aPos;
-layout (position = 1) in vec3 aNormal;
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
 
 uniform vec3 lightPos;
 uniform vec3 viewPos;

@@ -117,8 +117,7 @@ int main() {
     glEnableVertexAttribArray(0);
 
     //after register VBO to VAO by glVertexAttribPointer, buffer can be unbind safely
-    glBindBuffer(GL_VERTEX_ARRAY, 0);
-
+    glBindVertexArray(0);
 
     //render loop
     while (!glfwWindowShouldClose(window)) {
