@@ -5,6 +5,8 @@
 #include <iostream>
 #include <time.h>
 #include <vector>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 
 // settings
@@ -28,6 +30,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void processInput(GLFWwindow *window);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+unsigned int loadTexture(char const *path);
 
 int initWindow() {
     // ------------------------------
@@ -72,6 +75,7 @@ int initWindow() {
     glEnable(GL_DEPTH_TEST);
 }
 
+//雪花顶点数据
 float vertices[] = {
     0.2, 0.2, 0.0,
     1.2, 0.2, 0.0,
@@ -84,11 +88,65 @@ float vertices[] = {
     2.8, 0.2, 0.0,
     3.8, 0.2, 0.0,
     4.1, 0.0, 0.0,
-};
-
-float axis[] = {
     0.0, 0.0, 0.0,
-    5.0, 0.0, 0.0
+};
+//地板顶点数据
+float mFloor[] = {
+    //--位置坐标-----------纹理坐标---
+    0.5f,  0.0f, 0.5f,  1.0f, 1.0f,   // 右上
+    0.5f, 0.0f, -0.5f,  1.0f, 0.0f,   // 右下
+    -0.5f, 0.0f, -0.5f,  0.0f, 0.0f,   // 左下
+    -0.5f,  0.0f, 0.5f,  0.0f, 1.0f    // 左上
+};
+//天空盒顶点数据
+float cubeVertices[] = {
+    // Back face
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, // Bottom-left
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f, // top-right
+     0.5f, -0.5f, -0.5f,  1.0f, 0.0f, // bottom-right         
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f, // top-right
+    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, // bottom-left
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, // top-left
+    // Front face
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // bottom-left
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f, // bottom-right
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f, // top-right
+     0.5f,  0.5f,  0.5f,  1.0f, 1.0f, // top-right
+    -0.5f,  0.5f,  0.5f,  0.0f, 1.0f, // top-left
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // bottom-left
+    // Left face
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // top-right
+    -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, // top-left
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // bottom-left
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // bottom-left
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // bottom-right
+    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // top-right
+    // Right face
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // top-left
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // bottom-right
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f, // top-right         
+     0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // bottom-right
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // top-left
+     0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // bottom-left     
+    // Bottom face
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // top-right
+     0.5f, -0.5f, -0.5f,  1.0f, 1.0f, // top-left
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f, // bottom-left
+     0.5f, -0.5f,  0.5f,  1.0f, 0.0f, // bottom-left
+    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, // bottom-right
+    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, // top-right
+    // Top face
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, // top-left
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // bottom-right
+     0.5f,  0.5f, -0.5f,  1.0f, 1.0f, // top-right     
+     0.5f,  0.5f,  0.5f,  1.0f, 0.0f, // bottom-right
+    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, // top-left
+    -0.5f,  0.5f,  0.5f,  0.0f, 0.0f  // bottom-left        
+    };
+//地板顶点索引
+unsigned int indices[] = {
+    0, 1, 3,
+    1, 2, 3
 };
 
 
@@ -107,9 +165,31 @@ int main() {
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);  //定义顶点数据解析方式，包括格式和位置
     glEnableVertexAttribArray(0);
+    //地板数据
+    unsigned int floorVBO, floorVAO;
+    glGenVertexArrays(1, &floorVAO);  
+    glGenBuffers(1, &floorVBO);  
+    
+    glBindVertexArray(floorVAO);  
+    glBindBuffer(GL_ARRAY_BUFFER, floorVBO);  
+    glBufferData(GL_ARRAY_BUFFER, sizeof(mFloor), mFloor, GL_STATIC_DRAW);  
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);  
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));  
+    glEnableVertexAttribArray(1);
+
+    //地板 EBO/IBO
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    //导入纹理
+    unsigned int floorTex = loadTexture("../Texture/wall.jpg");
 
 
     Shader myShader("shader/lab1.vs", "shader/lab4.fs");
+    Shader texShader("shader/lab5.vs", "shader/lab5.fs");
     time_t t;
     srand((unsigned) time(&t));
     std::vector<glm::vec3> poss;
@@ -119,7 +199,7 @@ int main() {
         colors.push_back(glm::vec3(rand() % 1000 / (float)(1000.0), rand() % 1000 / (float)(1000.0), rand() % 1000 / (float)(1000.0)));
         colors.push_back(glm::vec3(rand() % 1000 / (float)(1000.0), rand() % 1000 / (float)(1000.0), rand() % 1000 / (float)(1000.0)));
     }
-
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     while (!glfwWindowShouldClose(window)) {
 
         float currentFrame = static_cast<float>(glfwGetTime());
@@ -131,7 +211,7 @@ int main() {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);  
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 
-
+        myShader.use();
         glm::mat4 view = glm::mat4(1.0);
         if (!surround) {
             view = camera.GetViewMatrix();
@@ -145,7 +225,6 @@ int main() {
         myShader.setMat4("projection", projection);
 
         //绘制雪花
-        myShader.use();
         glBindVertexArray(VAO);  //绑定顶点数组对象
         for (int j = 0; j < 10; ++j) {
             for (int i = 0; i < 6; ++i) {
@@ -155,13 +234,31 @@ int main() {
             model = glm::rotate(model, glm::radians(60.0f * i), glm::vec3(0.0, 0.0, 1.0f));
             myShader.setVec3("color", colors[2*j]);
             myShader.setMat4("model", model);
-            glDrawArrays(GL_TRIANGLE_FAN, 0, 11);
+            glDrawArrays(GL_TRIANGLE_FAN, 0, 12);
             model = glm::scale(model, glm::vec3(1.0f, -1.0f, 1.0f));
             myShader.setVec3("color", colors[2*j + 1]);
             myShader.setMat4("model", model);
-            glDrawArrays(GL_TRIANGLE_FAN, 0, 11);
+            glDrawArrays(GL_TRIANGLE_FAN, 0, 12);
         }
         }
+
+        //绘制地板
+        
+        texShader.use();
+        glBindVertexArray(floorVAO);
+        glActiveTexture(0);
+        glBindTexture(GL_TEXTURE_2D, floorTex);
+        texShader.setMat4("view", view);
+        texShader.setMat4("projection", projection);
+        for (int i = 0; i < 50; ++i) {
+            for (int j = 0; j < 50; ++j) {
+                texShader.setMat4("model", glm::translate(glm::mat4(1.0), glm::vec3(i - 25, 0, j - 25)));
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);  
+            }        
+        }
+
+        glBindVertexArray(0);
+
         //double buffer
         glfwSwapBuffers(window);
         //event handle
@@ -230,4 +327,42 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
     camera.ProcessMouseScroll(static_cast<float>(yoffset));
+}
+
+
+unsigned int loadTexture(char const *path)
+{
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
+
+    int width, height, nrComponents;
+    unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
+    if (data)
+    {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        stbi_image_free(data);
+    }
+    else
+    {
+        std::cout << "Texture failed to load at path: " << path << std::endl;
+        stbi_image_free(data);
+    }
+
+    return textureID;
 }

@@ -177,7 +177,7 @@ int main() {
     glEnableVertexAttribArray(1);
 
     //after register VBO to VAO by glVertexAttribPointer, buffer can be unbind safely
-    glBindBuffer(GL_VERTEX_ARRAY, 0);
+    glBindVertexArray(0);
     //DO NOT UNBIND GL_ELEMENT_ARRAY_BUFFER CAUSE IT WILL BE SAVED BY VAO
     // !! glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); !!
     unsigned int lightVAO;

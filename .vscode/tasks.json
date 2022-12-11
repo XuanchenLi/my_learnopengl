@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${fileDirname}/*",
                 
                 "${workspaceRoot}\\lib\\libglfw3dll.a", //链接至glfw库
                 "${workspaceRoot}\\lib\\libglad.a", //链接系统中的opengl32库
