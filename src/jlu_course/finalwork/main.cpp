@@ -4,11 +4,10 @@
 #include <time.h>
 #include <vector>
 #include <map>
-#define STB_IMAGE_IMPLEMENTATION
-#include "utils/stb_image.h"
 #include "ParticleManager.h"
 #include "utils/Shader.h"
 #include "utils/Camera.h"
+#include "utils/TextureLoader.h"
 
 
 // settings
@@ -49,12 +48,71 @@ float snowVertices[] = {
     4.1, 0.0, 0.0,
     0.0, 0.0, 0.0,
 };
+//地板顶点数据
+float mFloor[] = {
+    //--位置坐标-----------纹理坐标---
+    0.5f,  0.0f, 0.5f,  1.0f, 1.0f,   // 右上
+    0.5f, 0.0f, -0.5f,  1.0f, 0.0f,   // 右下
+    -0.5f, 0.0f, -0.5f,  0.0f, 0.0f,   // 左下
+    -0.5f,  0.0f, 0.5f,  0.0f, 1.0f    // 左上
+};
+//地板顶点索引
+unsigned int indices[] = {
+    0, 1, 3,
+    1, 2, 3
+};
+
+//天空盒顶点数据
+float skyboxVertices[] = {
+    // positions          
+    -1.0f,  1.0f, -1.0f,
+    -1.0f, -1.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,
+     1.0f,  1.0f, -1.0f,
+    -1.0f,  1.0f, -1.0f,
+
+    -1.0f, -1.0f,  1.0f,
+    -1.0f, -1.0f, -1.0f,
+    -1.0f,  1.0f, -1.0f,
+    -1.0f,  1.0f, -1.0f,
+    -1.0f,  1.0f,  1.0f,
+    -1.0f, -1.0f,  1.0f,
+
+     1.0f, -1.0f, -1.0f,
+     1.0f, -1.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,
+     1.0f,  1.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,
+
+    -1.0f, -1.0f,  1.0f,
+    -1.0f,  1.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,
+     1.0f, -1.0f,  1.0f,
+    -1.0f, -1.0f,  1.0f,
+
+    -1.0f,  1.0f, -1.0f,
+     1.0f,  1.0f, -1.0f,
+     1.0f,  1.0f,  1.0f,
+     1.0f,  1.0f,  1.0f,
+    -1.0f,  1.0f,  1.0f,
+    -1.0f,  1.0f, -1.0f,
+
+    -1.0f, -1.0f, -1.0f,
+    -1.0f, -1.0f,  1.0f,
+     1.0f, -1.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,
+    -1.0f, -1.0f,  1.0f,
+     1.0f, -1.0f,  1.0f
+};
 
 
 int initWindow() {
     // ------------------------------
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
@@ -97,13 +155,11 @@ int initWindow() {
     return 1;
 }
 
-
-
 int main() {
 
     if (initWindow() == -1)
         return -1;
-
+    //雪地VAO VBO
     unsigned int snowVBO, snowVAO;
     glGenVertexArrays(1, &snowVAO);
     glGenBuffers(1, &snowVBO);
@@ -113,11 +169,58 @@ int main() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);  //定义顶点数据解析方式，包括格式和位置
     glEnableVertexAttribArray(0);
     glBindVertexArray(0);
-    Shader snowShader("shader/mvp_shader.vs", "color_shader.fs");
-    snowShader.setVec3("color", glm::vec3(0.0f));
-    ParticleManager snowParticleManager(snowShader, snowVAO, 50);
+    //地板数据
+    unsigned int floorVBO, floorVAO;
+    glGenVertexArrays(1, &floorVAO);  
+    glGenBuffers(1, &floorVBO);  
+    
+    glBindVertexArray(floorVAO);  
+    glBindBuffer(GL_ARRAY_BUFFER, floorVBO);  
+    glBufferData(GL_ARRAY_BUFFER, sizeof(mFloor), mFloor, GL_STATIC_DRAW);  
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);  
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));  
+    glEnableVertexAttribArray(1);
+
+    //地板 EBO/IBO
+    unsigned int floorEBO;
+    glGenBuffers(1, &floorEBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, floorEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    //天空盒数据
+    unsigned int skyboxVAO, skyboxVBO;
+    glGenVertexArrays(1, &skyboxVAO);
+    glGenBuffers(1, &skyboxVBO);
+    glBindVertexArray(skyboxVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), skyboxVertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    //雪花粒子着色器
+    Shader snowShader("shader/instanced_mvp_shader.vs", "shader/color_shader.fs");
+    snowShader.use();
+    snowShader.setVec3("color", glm::vec3(1.0f));
+    //
+    Shader floorShader("shader/texture_shader.vs", "shader/texture_shader.fs");
+    Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
+    //雪花粒子发生器
+    ParticleManager snowParticleManager(snowShader, snowVAO, 3000);
     snowParticleManager.init();
 
+    GLuint floorTex = TextureLoader::loadTexture("texture/snowplain.jpg");
+    std::vector<std::string> skyFaces
+    {
+    "texture/skybox/right.png",
+    "texture/skybox/left.png",
+    "texture/skybox/top.png",
+    "texture/skybox/bottom.png",
+    "texture/skybox/front.png",
+    "texture/skybox/back.png"
+    };
+    unsigned int skyboxTexture = TextureLoader::loadCubemap(skyFaces);
+    
     while (!glfwWindowShouldClose(window)) {
         //process input
         GLfloat currentFrame = static_cast<float>(glfwGetTime());
@@ -127,13 +230,44 @@ int main() {
         processInput(window);
         //render command
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);  // state set function
-        glClear(GL_COLOR_BUFFER_BIT);  // state use function
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // state use function
         glm::mat4 view = camera.GetViewMatrix();
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);  //设置透视矩阵
+        //绘制雪花粒子
+        snowShader.use();
         snowShader.setMat4("view", view);
         snowShader.setMat4("projection", projection);
+        //snowShader.setVec3("color", glm::vec3(1.0f));
         snowParticleManager.update(deltaTime, currentFrame);
         snowParticleManager.draw();
+
+        //绘制地板
+        floorShader.use();
+        glBindVertexArray(floorVAO);
+        glActiveTexture(0);
+        glBindTexture(GL_TEXTURE_2D, floorTex);
+        floorShader.setMat4("view", view);
+        floorShader.setMat4("projection", projection);
+        for (int i = 0; i < 40; ++i) {
+            for (int j = 0; j < 40; ++j) {
+                floorShader.setMat4("model", glm::translate(glm::mat4(1.0), glm::vec3(i - 20, 0, j - 20)));
+                glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);  
+            }        
+        }
+
+        //绘制天空盒
+        glDepthFunc(GL_LEQUAL);
+        skyboxShader.use();
+        glBindVertexArray(skyboxVAO);
+        glm::mat4 staticView = glm::mat4(glm::mat3(camera.GetViewMatrix()));  //消除平移分量
+        skyboxShader.setMat4("view", staticView);
+        skyboxShader.setMat4("projection", projection);
+        glActiveTexture(0);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTexture);
+        skyboxShader.setInt("skybox", 0);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDepthFunc(GL_LESS);
+
         //double buffer
         glfwSwapBuffers(window);
         //event handle

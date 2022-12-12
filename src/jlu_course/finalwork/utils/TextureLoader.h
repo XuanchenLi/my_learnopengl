@@ -12,7 +12,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 class TextureLoader {
-
+public:
     static unsigned int loadTexture(const char* path) {
         unsigned int texId;
         glGenTextures(1, &texId);
@@ -57,7 +57,14 @@ class TextureLoader {
         for (unsigned int i = 0; i < faces.size(); ++i) {
             unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
             if (data) {
-                glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+                GLenum format;
+                if (nrChannels == 1)
+                    format = GL_RED;
+                else if (nrChannels == 3)
+                    format = GL_RGB;
+                else if (nrChannels == 4)
+                    format = GL_RGBA;
+                glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
                 stbi_image_free(data);
             }else {
                 std::cout << "Texture failed to load at path: " << faces[i] << std::endl;

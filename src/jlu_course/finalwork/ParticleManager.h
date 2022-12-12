@@ -29,7 +29,10 @@ class ParticleManager {
 public:
     ParticleManager(Shader shader, GLuint vao, GLuint num = 50)
         :particleNum(num), shader(shader), VAO(vao){};
-    ~ParticleManager() {};
+    ~ParticleManager() {
+        glDeleteBuffers(1, &instancedVBO);
+        delete[] modelMatrices;
+    }
     bool init();
     void update(GLfloat deltaTimeMillis, GLfloat currentFrame);
     void draw();
@@ -39,6 +42,8 @@ private:
     std::vector<Particle> particles;
     Shader shader;
     GLuint VAO;
+    GLuint instancedVBO;
+    glm::mat4* modelMatrices;
     GLint getFirstDeadParticle();
     void respawnParticle(Particle& particle);
 };
