@@ -1,0 +1,327 @@
+# Blender MTL File: 'c4520 lady maria.blend'
+# Material Count: 25
+
+newmtl c4520_body
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.780563 0.469258 0.684034
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m0__00_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.636254 0.526422 0.693343
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1703_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1703_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1703_a.tga
+
+newmtl m10_head01_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.790499 0.747119 0.520784
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_HD_M_3000_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_HD_M_3000_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_HD_M_3000_a.tga
+
+newmtl m11_Material__64
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.483925 0.584782 0.505119
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_HD_M_3000_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_HD_M_3000_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_HD_M_3000_a.tga
+
+newmtl m12_Material__106
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.605286 0.552746 0.458445
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+
+newmtl m13_c4520_c8030_Haircloth_01_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.431549 0.616325 0.619732
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+
+newmtl m14_c4520_c8030_Haircloth_02_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.704060 0.446250 0.694528
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+
+newmtl m15_c4520_c8030_Haircloth_03_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.440794 0.594270 0.755388
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+
+newmtl m16__03_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.756343 0.630578 0.436541
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+
+newmtl m17__04_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.447844 0.705100 0.783094
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+
+newmtl m18__05_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.547138 0.712109 0.695760
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+
+newmtl m19_arm
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.665240 0.622345 0.551893
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_arm_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_arm_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_arm_a.tga
+
+newmtl m1__01_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.715147 0.767467 0.423344
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1703_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1703_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1703_a.tga
+
+newmtl m20_hd
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.646910 0.539343 0.771454
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_head_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_head_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_head_a.tga
+
+newmtl m21_hd_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.772474 0.691294 0.731726
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_head_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_head_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_head_a.tga
+
+newmtl m22_Material__426
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.760456 0.478002 0.556075
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_leg_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_leg_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_leg_a.tga
+
+newmtl m23_Material__82
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.703682 0.693748 0.552413
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_skin_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_skin_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_skin_a.tga
+
+newmtl m24_Material__106
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.567928 0.727365 0.660182
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+
+newmtl m2__02_
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.530770 0.743849 0.606640
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\WP_A_2520_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_2520_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\WP_A_2520_a.tga
+
+newmtl m4__10_mantle_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.693309 0.433455 0.670299
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_mantle_inside_a.tga
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m5__10_coat_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.739412 0.586126 0.635189
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_BD_M_3000_ClothInside_a.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m6_scarf_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.647062 0.421456 0.715311
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m7_chain_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.535291 0.509038 0.760111
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m8__11_coat_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.708018 0.788542 0.464928
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_BD_M_3000_ClothInside_a.tif
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+
+newmtl m9__11_mantle_cloth
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.566744 0.649693 0.481548
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 0
+map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
+map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_mantle_inside_a.tga
+map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga

@@ -48,7 +48,7 @@ struct Material {
     float shininess;
 };
 
-#define NR_POINT_LIGHTS 2
+#define NR_POINT_LIGHTS 1
 
 uniform vec3 viewPos;
 uniform DirLight dirLight;

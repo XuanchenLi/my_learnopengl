@@ -7,7 +7,11 @@
 #include "ParticleManager.h"
 #include "utils/Shader.h"
 #include "utils/Camera.h"
-#include "utils/TextureLoader.h"
+#include "TextureLoader.h"
+#include "GameObject.h"
+#include "light/DirLight.h"
+#include "light/PointLight.h"
+#include "light/SpotLight.h"
 
 
 // settings
@@ -155,6 +159,35 @@ int initWindow() {
     return 1;
 }
 
+void setupLightData(Shader& ourShader, DirLight& dir, PointLight& point, SpotLight& spot) {
+    ourShader.use();
+    ourShader.setFloat("material.shininess", 32.0f);
+    ourShader.setVec3("dirLight.direction", dir.direction);
+    ourShader.setVec3("dirLight.ambient", dir.ambient);
+    ourShader.setVec3("dirLight.diffuse", dir.diffuse);
+    ourShader.setVec3("dirLight.specular", dir.specular);
+
+    ourShader.setVec3("pointLights[0].position", point.position);
+    ourShader.setVec3("pointLights[0].ambient", point.ambient);
+    ourShader.setVec3("pointLights[0].diffuse", point.diffuse);
+    ourShader.setVec3("pointLights[0].specular", point.specular);
+    ourShader.setFloat("pointLights[0].constant", point.constant);
+    ourShader.setFloat("pointLights[0].linear", point.linear);
+    ourShader.setFloat("pointLights[0].quadratic", point.quadratic);
+    
+    // spotLight
+    ourShader.setVec3("spotLight.position", spot.position);
+    ourShader.setVec3("spotLight.direction", spot.direction);
+    ourShader.setVec3("spotLight.ambient", spot.ambient);
+    ourShader.setVec3("spotLight.diffuse", spot.diffuse);
+    ourShader.setVec3("spotLight.specular", spot.specular);
+    ourShader.setFloat("spotLight.constant", spot.constant);
+    ourShader.setFloat("spotLight.linear", spot.linear);
+    ourShader.setFloat("spotLight.quadratic", spot.quadratic);
+    ourShader.setFloat("spotLight.cutOff", glm::cos(glm::radians(spot.cutOff)));
+    ourShader.setFloat("spotLight.outerCutOff", glm::cos(glm::radians(spot.outerCutOff)));  
+}
+
 int main() {
 
     if (initWindow() == -1)
@@ -198,6 +231,9 @@ int main() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
+    //模型
+    GameObject snowman(glm::vec3(0.0f), Model("model/snowman/snowman.obj"));
+
     //雪花粒子着色器
     Shader snowShader("shader/instanced_mvp_shader.vs", "shader/color_shader.fs");
     snowShader.use();
@@ -205,6 +241,32 @@ int main() {
     //
     Shader floorShader("shader/texture_shader.vs", "shader/texture_shader.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
+    //模型着色器
+    Shader modelShader("shader/model_loading.vs", "shader/model_loading.fs");
+    DirLight dirLight(
+        glm::vec3(-0.2f, -1.0f, -0.3f),
+        glm::vec3(0.3f),
+        glm::vec3(0.4f),
+        glm::vec3(0.5f)
+    );
+    PointLight pointLight(
+        glm::vec3(0.0f, 5.0f, 0.0f),
+        1.0f, 0.09f, 0.032f,
+        glm::vec3(0.1f),
+        glm::vec3(0.8),
+        glm::vec3(1.0f)
+    );
+    SpotLight spotLight(
+        glm::vec3(5.0f, 1.0f, 0.0f),
+        glm::vec3(-1.0f, 0.0f, 0.0f),
+        12.5f, 15.0f,
+        1.0f, 0.09f, 0.032f,
+        glm::vec3(0.1f),
+        glm::vec3(0.0f, 1.0f, 0.0f),
+        glm::vec3(0.0f, 1.0f, 0.0f)
+    );
+    setupLightData(modelShader, dirLight, pointLight, spotLight);
+
     //雪花粒子发生器
     ParticleManager snowParticleManager(snowShader, snowVAO, 3000);
     snowParticleManager.init();
@@ -254,6 +316,12 @@ int main() {
                 glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);  
             }        
         }
+        //绘制模型
+        modelShader.use();
+        modelShader.setMat4("view", view);
+        modelShader.setMat4("projection", projection);
+        modelShader.setVec3("viewPos", camera.Position);
+        snowman.Draw(modelShader);
 
         //绘制天空盒
         glDepthFunc(GL_LEQUAL);

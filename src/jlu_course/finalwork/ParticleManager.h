@@ -1,4 +1,6 @@
-#include <glad/glad.h>
+#ifndef PARTICLEMANAGER_H
+#define PARTICLEMANAGER_H
+
 #include <string.h>
 #include <fstream>
 #include <iostream>
@@ -47,3 +49,5 @@ private:
     GLint getFirstDeadParticle();
     void respawnParticle(Particle& particle);
 };
+
+#endif
