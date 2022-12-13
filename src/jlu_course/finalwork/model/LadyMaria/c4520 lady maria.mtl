@@ -10,9 +10,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_body_r.tif
+map_d texture\c4520_body_a.tga
 
 newmtl m0__00_
 Ns 96.078431
@@ -23,9 +23,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1703_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1703_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1703_a.tga
+map_Kd texture\c4520_WP_A_1703_a.tga
+map_Bump texture\c4520_WP_A_1703_r.tif
+map_d texture\c4520_WP_A_1703_a.tga
 
 newmtl m10_head01_cloth
 Ns 96.078431
@@ -36,9 +36,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_HD_M_3000_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_HD_M_3000_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_HD_M_3000_a.tga
+map_Kd texture\c4520_HD_M_3000_a.tga
+map_Bump texture\c4520_HD_M_3000_r.tif
+map_d texture\c4520_HD_M_3000_a.tga
 
 newmtl m11_Material__64
 Ns 96.078431
@@ -49,9 +49,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_HD_M_3000_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_HD_M_3000_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_HD_M_3000_a.tga
+map_Kd texture\c4520_HD_M_3000_a.tga
+map_Bump texture\c4520_HD_M_3000_r.tif
+map_d texture\c4520_HD_M_3000_a.tga
 
 newmtl m12_Material__106
 Ns 96.078431
@@ -62,9 +62,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+map_Kd texture\c4520_c8030_HR_a.tga
+map_Bump texture\c4520_c8030_HR_r.tif
+map_d texture\c4520_c8030_HR_a.tga
 
 newmtl m13_c4520_c8030_Haircloth_01_cloth
 Ns 96.078431
@@ -75,9 +75,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+map_Kd texture\c4520_c8030_HR_a.tga
+map_Bump texture\c4520_c8030_HR_r.tif
+map_d texture\c4520_c8030_HR_a.tga
 
 newmtl m14_c4520_c8030_Haircloth_02_cloth
 Ns 96.078431
@@ -88,9 +88,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+map_Kd texture\c4520_c8030_HR_a.tga
+map_Bump texture\c4520_c8030_HR_r.tif
+map_d texture\c4520_c8030_HR_a.tga
 
 newmtl m15_c4520_c8030_Haircloth_03_cloth
 Ns 96.078431
@@ -101,9 +101,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+map_Kd texture\c4520_c8030_HR_a.tga
+map_Bump texture\c4520_c8030_HR_r.tif
+map_d texture\c4520_c8030_HR_a.tga
 
 newmtl m16__03_
 Ns 96.078431
@@ -114,9 +114,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+map_Kd texture\c4520_WP_A_1063_a.tga
+map_Bump texture\c4520_WP_A_1063_r.tif
+map_d texture\c4520_WP_A_1063_a.tga
 
 newmtl m17__04_
 Ns 96.078431
@@ -127,9 +127,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+map_Kd texture\c4520_WP_A_1063_a.tga
+map_Bump texture\c4520_WP_A_1063_r.tif
+map_d texture\c4520_WP_A_1063_a.tga
 
 newmtl m18__05_
 Ns 96.078431
@@ -140,9 +140,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1063_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1063_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1063_a.tga
+map_Kd texture\c4520_WP_A_1063_a.tga
+map_Bump texture\c4520_WP_A_1063_r.tif
+map_d texture\c4520_WP_A_1063_a.tga
 
 newmtl m19_arm
 Ns 96.078431
@@ -153,9 +153,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_arm_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_arm_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_arm_a.tga
+map_Kd texture\c4520_arm_a.tga
+map_Bump texture\c4520_arm_r.tif
+map_d texture\c4520_arm_a.tga
 
 newmtl m1__01_
 Ns 96.078431
@@ -166,9 +166,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_WP_A_1703_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_1703_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_WP_A_1703_a.tga
+map_Kd texture\c4520_WP_A_1703_a.tga
+map_Bump texture\c4520_WP_A_1703_r.tif
+map_d texture\c4520_WP_A_1703_a.tga
 
 newmtl m20_hd
 Ns 96.078431
@@ -179,9 +179,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_head_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_head_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_head_a.tga
+map_Kd texture\c4520_head_a.tga
+map_Bump texture\c4520_head_r.tif
+map_d texture\c4520_head_a.tga
 
 newmtl m21_hd_cloth
 Ns 96.078431
@@ -192,9 +192,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_head_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_head_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_head_a.tga
+map_Kd texture\c4520_head_a.tga
+map_Bump texture\c4520_head_r.tif
+map_d texture\c4520_head_a.tga
 
 newmtl m22_Material__426
 Ns 96.078431
@@ -205,9 +205,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_leg_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_leg_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_leg_a.tga
+map_Kd texture\c4520_leg_a.tga
+map_Bump texture\c4520_leg_r.tif
+map_d texture\c4520_leg_a.tga
 
 newmtl m23_Material__82
 Ns 96.078431
@@ -218,9 +218,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_skin_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_skin_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_skin_a.tga
+map_Kd texture\c4520_c8030_skin_a.tga
+map_Bump texture\c4520_c8030_skin_r.tif
+map_d texture\c4520_c8030_skin_a.tga
 
 newmtl m24_Material__106
 Ns 96.078431
@@ -231,9 +231,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_c8030_HR_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_c8030_HR_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_c8030_HR_a.tga
+map_Kd texture\c4520_c8030_HR_a.tga
+map_Bump texture\c4520_c8030_HR_r.tif
+map_d texture\c4520_c8030_HR_a.tga
 
 newmtl m2__02_
 Ns 96.078431
@@ -244,9 +244,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\WP_A_2520_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_WP_A_2520_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\WP_A_2520_a.tga
+map_Kd texture\WP_A_2520_a.tga
+map_Bump texture\c4520_WP_A_2520_r.tif
+map_d texture\WP_A_2520_a.tga
 
 newmtl m4__10_mantle_cloth
 Ns 96.078431
@@ -257,9 +257,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_mantle_inside_a.tga
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_mantle_inside_a.tga
+map_d texture\c4520_body_a.tga
 
 newmtl m5__10_coat_cloth
 Ns 96.078431
@@ -270,9 +270,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_BD_M_3000_ClothInside_a.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_BD_M_3000_ClothInside_a.tif
+map_d texture\c4520_body_a.tga
 
 newmtl m6_scarf_cloth
 Ns 96.078431
@@ -283,9 +283,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_body_r.tif
+map_d texture\c4520_body_a.tga
 
 newmtl m7_chain_cloth
 Ns 96.078431
@@ -296,9 +296,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_body_r.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_body_r.tif
+map_d texture\c4520_body_a.tga
 
 newmtl m8__11_coat_cloth
 Ns 96.078431
@@ -309,9 +309,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520_BD_M_3000_ClothInside_a.tif
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_BD_M_3000_ClothInside_a.tif
+map_d texture\c4520_body_a.tga
 
 newmtl m9__11_mantle_cloth
 Ns 96.078431
@@ -322,6 +322,6 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 0.000000
 illum 0
-map_Kd C:\Users\Minitiv\Desktop\blender\bloodborne\c4520 lady maria\c4520 lady maria\c4520_body_a.tga
-map_Bump C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_mantle_inside_a.tga
-map_d C:\\Users\\Minitiv\\Desktop\\blender\\bloodborne\\c4520 lady maria\\c4520 lady maria\\c4520_body_a.tga
+map_Kd texture\c4520_body_a.tga
+map_Bump texture\c4520_mantle_inside_a.tga
+map_d texture\c4520_body_a.tga

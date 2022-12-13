@@ -232,7 +232,9 @@ int main() {
     glEnableVertexAttribArray(0);
 
     //模型
-    GameObject snowman(glm::vec3(0.0f), Model("model/snowman/snowman.obj"));
+    GameObject tree(glm::vec3(3.0f, 0.0f, 3.0f), Model("model/tree/Tree.obj"));
+    GameObject doll(glm::vec3(-3.0f, 0.0f, -3.0f), Model("model/TheDoll/doll.obj"));
+    GameObject maria(glm::vec3(-3.0f, 0.0f, 3.0f), Model("model/LadyMaria/c4520 lady maria.obj"));
 
     //雪花粒子着色器
     Shader snowShader("shader/instanced_mvp_shader.vs", "shader/color_shader.fs");
@@ -321,7 +323,9 @@ int main() {
         modelShader.setMat4("view", view);
         modelShader.setMat4("projection", projection);
         modelShader.setVec3("viewPos", camera.Position);
-        snowman.Draw(modelShader);
+        maria.Draw(modelShader);
+        doll.Draw(modelShader);
+        tree.Draw(modelShader);
 
         //绘制天空盒
         glDepthFunc(GL_LEQUAL);
