@@ -4,6 +4,7 @@
 #include <time.h>
 #include <vector>
 #include <map>
+#include <glm/gtx/string_cast.hpp>
 #include "ParticleManager.h"
 #include "utils/Shader.h"
 #include "utils/Camera.h"
@@ -20,7 +21,7 @@ unsigned int SCR_HEIGHT = 1080;
 GLFWwindow* window;
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 3.1f, 1.5f));
 float lastX = (float)SCR_WIDTH / 2.0;
 float lastY = (float)SCR_HEIGHT / 2.0;
 bool firstMouse = true;
@@ -28,8 +29,13 @@ bool firstMouse = true;
 // timing
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
+GLfloat interval = 0.0f;
 
-bool surround = false;
+glm::vec3 playerPosition(0.0f);
+//GLfloat playerYaw = 90.0f;
+glm::vec3 playerFront(0.0f, 0.0f, 1.0f);
+bool firstSwitch = false;
+bool surround = true;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -140,7 +146,7 @@ int initWindow() {
     const GLFWvidmode* mode1 = glfwGetVideoMode(*pMonitor);	
     glfwSetWindowPos(window, (mode1->width - SCR_WIDTH) / 2, (mode1->height - SCR_HEIGHT) / 2);
 
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
@@ -232,9 +238,12 @@ int main() {
     glEnableVertexAttribArray(0);
 
     //模型
+    GameObject snowman(glm::vec3(0.0f), Model("model/snowman/snowman.obj"));
     GameObject tree(glm::vec3(3.0f, 0.0f, 3.0f), Model("model/tree/Tree.obj"));
     GameObject doll(glm::vec3(-3.0f, 0.0f, -3.0f), Model("model/TheDoll/doll.obj"));
     GameObject maria(glm::vec3(-3.0f, 0.0f, 3.0f), Model("model/LadyMaria/c4520 lady maria.obj"));
+    doll.Scale = 2.0f;
+    maria.Scale = 2.0f;
 
     //雪花粒子着色器
     Shader snowShader("shader/instanced_mvp_shader.vs", "shader/color_shader.fs");
@@ -270,7 +279,7 @@ int main() {
     setupLightData(modelShader, dirLight, pointLight, spotLight);
 
     //雪花粒子发生器
-    ParticleManager snowParticleManager(snowShader, snowVAO, 3000);
+    ParticleManager snowParticleManager(snowShader, snowVAO, 4000);
     snowParticleManager.init();
 
     GLuint floorTex = TextureLoader::loadTexture("texture/snowplain.jpg");
@@ -323,10 +332,15 @@ int main() {
         modelShader.setMat4("view", view);
         modelShader.setMat4("projection", projection);
         modelShader.setVec3("viewPos", camera.Position);
+        snowman.SetPosition(playerPosition);
+        GLfloat roa = glm::atan(playerFront.x, playerFront.z);
+        //std::cout<<glm::radians(glm::atan(1.0, 0.0))<<std::endl;
+        //std:cout<<glm::radians(roa)<<std::endl;
+        snowman.SetRotation(roa);
+        snowman.Draw(modelShader);
         maria.Draw(modelShader);
         doll.Draw(modelShader);
         tree.Draw(modelShader);
-
         //绘制天空盒
         glDepthFunc(GL_LEQUAL);
         skyboxShader.use();
@@ -354,20 +368,65 @@ int main() {
 
 void processInput(GLFWwindow *window)
 {
+    //std::cout<<glm::to_string(playerPosition)<<std::endl;
+    interval += deltaTime;
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
-
-    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+    if (interval >= 0.5) {
+        if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) != 0) {
         surround = !surround;
+        if (surround == false) {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            camera.Yaw = glm::atan(playerFront.z, playerFront.x) * 180.0f / 3.14159f;
+            camera.Pitch = 0.0f;
+            camera.updateCameraVectors();
+        }
+        else {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+            //playerDirection = camera.Yaw;
+            //camera.Position = glm::vec3(playerPosition.x, playerPosition.y + 15, playerPosition.z);
+            //camera.Position -= glm::vec3(playerFront.x * 15, 0.0f, playerFront.z * 15);
+        }
+        firstSwitch = false;
+        interval = 0;
+        }
+    }
+
+    if (surround == false) {
+        camera.Position = glm::vec3(playerPosition.x, playerPosition.y + 3.1, playerPosition.z);
+        camera.Position += glm::vec3(camera.Front.x * 1.5, 0.0f, camera.Front.z * 1.5);
+        playerFront = glm::normalize(glm::vec3(camera.Front.x, 0.0f, camera.Front.z));
+    }else {
+        camera.Position = glm::vec3(playerPosition.x, playerPosition.y + 10, playerPosition.z);
+        camera.Position -= glm::vec3(playerFront.x * 15, 0.0f, playerFront.z * 15);
+        camera.Front = glm::normalize(playerPosition - camera.Position);
+        camera.Yaw = glm::atan(camera.Front.z, camera.Front.x) * 180.0f / 3.14159f;
+        camera.Pitch = glm::asin(camera.Front.z) * 180.0f / 3.14159f;;
+        camera.Right = glm::normalize(glm::cross(camera.Front, glm::vec3(0.0f, 1.0f, 0.0f)));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+        camera.Up    = glm::normalize(glm::cross(camera.Right, camera.Front));
+    }
+
+    //glm::vec3 playerFront = glm::vec3(cos(glm::radians(dir)), 0.0f, sin(glm::radians(dir)));
+    glm::vec3 playerRight = glm::cross(playerFront, glm::vec3(0.0f, 1.0f, 0.0f));
+
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        camera.ProcessKeyboard(FORWARD, deltaTime, true);
+        playerPosition += playerFront * deltaTime * 2.5f;
+    }
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        camera.ProcessKeyboard(BACKWARD, deltaTime, true);
+        playerPosition -= playerFront * deltaTime * 2.5f;
+    }
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        camera.ProcessKeyboard(LEFT, deltaTime, true);
+        playerPosition -= playerRight * deltaTime * 2.5f;
+    }
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        camera.ProcessKeyboard(RIGHT, deltaTime, true);
+        playerPosition += playerRight * deltaTime * 2.5f;
+    }
+
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -394,11 +453,18 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 
     float xoffset = xpos - lastX;
     float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
-
+    //std::cout<<xoffset<<std::endl;
     lastX = xpos;
     lastY = ypos;
-
-    camera.ProcessMouseMovement(xoffset, yoffset);
+    if (surround == false)
+        camera.ProcessMouseMovement(xoffset, yoffset);
+    else {
+        if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) != 0) {
+            glm::mat4 rotateMatrix = glm::mat4(1.0f);
+            rotateMatrix = glm::rotate(rotateMatrix, glm::radians(-xoffset), glm::vec3(0.0f, 1.0f, 0.0f));
+            playerFront = glm::mat3(rotateMatrix) * playerFront;
+        }
+    }
 }
 
 

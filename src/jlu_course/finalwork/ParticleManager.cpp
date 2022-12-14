@@ -66,7 +66,7 @@ void ParticleManager::update(GLfloat deltaTimeMillis, GLfloat currentFrame) {
     GLuint cnt = 0;
     while(index != -1) {
         cnt++;
-        if (cnt >= 20)
+        if (cnt >= 35)
             break;
         respawnParticle(particles[index]);
         index = getFirstDeadParticle();

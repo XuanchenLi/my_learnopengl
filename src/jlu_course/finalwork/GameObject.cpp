@@ -9,7 +9,7 @@ void GameObject::Draw(Shader &shader)
     shader.use();
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::translate(model, Position); 
-    model = glm::rotate(model, glm::radians(Rotation), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::rotate(model, Rotation, glm::vec3(0.0f, 1.0f, 0.0f));
     model = glm::scale(model, glm::vec3(Scale));	
     shader.setMat4("model", model);
     mModel.Draw(shader);
