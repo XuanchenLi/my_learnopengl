@@ -13,7 +13,8 @@ bool ParticleManager::init() {
     modelMatrices = new glm::mat4[particleNum*12];
     glGenBuffers(1, &instancedVBO);
     glBindBuffer(GL_ARRAY_BUFFER, instancedVBO);
-    glBufferData(GL_ARRAY_BUFFER, 12 * particleNum * sizeof(glm::mat4), &modelMatrices[0], GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 12 * particleNum * sizeof(glm::mat4), 
+                &modelMatrices[0], GL_DYNAMIC_DRAW);
     glBindVertexArray(VAO);
     GLsizei vec4Size = sizeof(glm::vec4);
     glEnableVertexAttribArray(1); 

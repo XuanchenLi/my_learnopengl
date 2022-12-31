@@ -376,16 +376,15 @@ void processInput(GLFWwindow *window)
         if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) != 0) {
         surround = !surround;
         if (surround == false) {
+            //第三人称切换至第一人称
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
             camera.Yaw = glm::atan(playerFront.z, playerFront.x) * 180.0f / 3.14159f;
             camera.Pitch = 0.0f;
             camera.updateCameraVectors();
         }
         else {
+            //第一人称切换至第三人称
             glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-            //playerDirection = camera.Yaw;
-            //camera.Position = glm::vec3(playerPosition.x, playerPosition.y + 15, playerPosition.z);
-            //camera.Position -= glm::vec3(playerFront.x * 15, 0.0f, playerFront.z * 15);
         }
         firstSwitch = false;
         interval = 0;
